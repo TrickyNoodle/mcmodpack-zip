@@ -10,6 +10,9 @@ export type project_object={
     downloads:number
     icon_url:string
     latest_version:string
+    name:string
+    summary:string
+    game_versions:Array<string>
 }
 export type search={
     hits:Array<project_object>

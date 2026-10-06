@@ -12,7 +12,7 @@ export type projectinformation={
     categories:string
     environment:string
     game_versions:Array<string>
-    loaders:string
+    loaders:Array<string>
     versions:Array<String>
     gallery:Array<projectgallery>
     icon_url:string
@@ -23,7 +23,7 @@ export type projectversion={
     version_number:string
     game_versions:Array<string>
     version_type:string
-    loaders:Array<string>
+    loaders:Array<string>   
     id:string
     dependencies:Array<projectdependencies>
     files:Array<projectfiles>
@@ -42,4 +42,5 @@ export type projectfiles={
     url:String
     filename:String
     size:string
+    primary:Boolean
 }
