@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mcmodpack-zip.vercel.app/sitemap.xml

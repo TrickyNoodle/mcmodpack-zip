@@ -1,40 +1,82 @@
-import { Geist, JetBrains_Mono } from "next/font/google"
-
+import type { Metadata } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
-
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
-
-import type { Metadata } from 'next'
 import Footer from "@/components/Footer";
 
+const siteUrl = "https://mcmodpack-zip.vercel.app";
+
+const fontSans = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const fontSerif = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-serif",
+});
+
+const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yourdomain.com'),
+  metadataBase: new URL(siteUrl),
+  applicationName: "PackZip",
+  manifest: "/site.webmanifest",
   title: {
-    default: 'PackZip - Download Minecraft Modpacks as a Zip',
-    template: '%s | PackZip',
+    default: "PackZip | Download Minecraft Modpacks as ZIP",
+    template: "%s | PackZip",
   },
   description:
-    'Browse Modrinth modpacks and download any modpack as a ready-to-use zip with mods, configs and overrides included.',
-  keywords: ['Minecraft', 'Modrinth', 'modpack downloader', 'mods', 'mrpack to zip'],
-  alternates: { canonical: '/' },
+    "Search Minecraft Modrinth modpacks and download them as ready-to-use ZIP files with mods, configs, and overrides included.",
+  keywords: [
+    "Minecraft modpacks",
+    "Modrinth modpacks",
+    "modpack downloader",
+    "minecraft mods",
+    "mrpack to zip",
+    "download modpack zip",
+    "Minecraft zip modpack",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
-    type: 'website',
-    siteName: 'PackZip',
-    title: 'PackZip - Download Minecraft Modpacks as a Drag and Drop Zip',
-    description: 'Download Modrinth modpacks as a complete zip.',
-    url: '/',
-    images: ['/og.png'], // 1200x630
+    type: "website",
+    locale: "en_US",
+    siteName: "PackZip",
+    title: "PackZip | Download Minecraft Modpacks as ZIP",
+    description:
+      "Find and download high-quality Minecraft modpacks from Modrinth in a drag-and-drop ZIP format.",
+    url: "/",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "PackZip - Download Minecraft modpacks as a ZIP",
+      },
+    ],
   },
-  robots: { index: true, follow: true },
-}
+  twitter: {
+    card: "summary_large_image",
+    site: "@TrickyNoodle",
+    title: "PackZip | Download Minecraft Modpacks as ZIP",
+    description:
+      "Search and download modpacks from Modrinth and package them into a ZIP for easy installation.",
+    images: ["/og-image.svg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 export default function RootLayout({
   children,
@@ -45,7 +87,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontSans.variable, "font-mono", jetbrainsMono.variable)}
+      className={cn("antialiased", fontSans.variable, fontSerif.variable, "font-mono", jetbrainsMono.variable)}
     >
       <body>
         <ThemeProvider>

@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="28" fill="#0B0F0D"/>
+  <rect x="36" y="36" width="1128" height="558" rx="22" fill="#121A17" stroke="#2ED87E" stroke-width="4"/>
+  <circle cx="146" cy="152" r="48" fill="#2ED87E" fill-opacity="0.18"/>
+  <path d="M104 153L128 177L174 131" stroke="#6AE7A7" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="260" fill="#EAFCF2" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">PackZip</text>
+  <text x="96" y="334" fill="#B6EFD0" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="600">Download Minecraft Modpacks as ZIP</text>
+  <text x="96" y="420" fill="#D7F5E4" font-family="Arial, Helvetica, sans-serif" font-size="28">Search Modrinth modpacks, package the files, and install faster.</text>
+  <rect x="96" y="474" width="240" height="56" rx="14" fill="#2ED87E"/>
+  <text x="129" y="512" fill="#0B0F0D" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Search now</text>
+</svg>
