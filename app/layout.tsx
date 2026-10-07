@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import Footer from "@/components/Footer";
 
-const siteUrl = "https://mcmodpack-zip.vercel.app";
+const siteUrl = "https://trickynoodle.github.io/mcmodpack-zip";
 
 const fontSans = JetBrains_Mono({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'})
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "PackZip",
-  manifest: "/site.webmanifest",
+  manifest: "./site.webmanifest",
   title: {
     default: "PackZip | Download Minecraft Modpacks as ZIP",
     template: "%s | PackZip",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     title: "PackZip | Download Minecraft Modpacks as ZIP",
     description:
       "Find and download high-quality Minecraft modpacks from Modrinth in a drag-and-drop ZIP format.",
-    url: "/",
+    url: "./",
     images: [
       {
-        url: "/og-image.svg",
+        url: "./og-image.svg",
         width: 1200,
         height: 630,
         alt: "PackZip - Download Minecraft modpacks as a ZIP",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "PackZip | Download Minecraft Modpacks as ZIP",
     description:
       "Search and download modpacks from Modrinth and package them into a ZIP for easy installation.",
-    images: ["/og-image.svg"],
+    images: ["./og-image.svg"],
   },
   robots: {
     index: true,

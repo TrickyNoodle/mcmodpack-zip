@@ -17,7 +17,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { Button } from "@/components/ui/button"
 
 const PAGE_SIZE = 10
-const siteUrl = "https://mcmodpack-zip.vercel.app"
+const siteUrl = "https://trickynoodle.github.io/mcmodpack-zip"
 
 function getPageNumbers(current: number, total: number): (number | "ellipsis")[] {
   if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)

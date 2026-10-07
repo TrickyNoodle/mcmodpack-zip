@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://mcmodpack-zip.vercel.app/sitemap.xml
+Sitemap: https://trickynoodle.github.io/mcmodpack-zip/sitemap.xml
