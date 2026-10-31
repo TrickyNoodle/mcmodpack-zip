@@ -51,6 +51,7 @@ const ProjectDialogComponent = ({ onclose, projectid }: { onclose: () => void, p
             const versioninfo: projectversion = response
             if (projectinfo?.project_type == "modpack") {
                 let moddownloads = 0
+                let errors = []
                 const dependencies = await versioninfo.dependencies.filter((e) => { return e.version_id != null }).flatMap(async (e: projectdependencies) => {
                     const result = await fetch("https://api.modrinth.com/v2/version/" + e.version_id)
                     const res: projectversion = await result.json();
@@ -58,6 +59,8 @@ const ProjectDialogComponent = ({ onclose, projectid }: { onclose: () => void, p
                     const file = await fetch(primary?.url as string)
                     if (res.loaders.includes("minecraft"))
                         modszip.file("resourcepacks/" + primary?.filename, await file.blob())
+                    else if (res.loaders.includes("iris") || res.loaders.includes("optifine"))
+                        modszip.file("shaderpacks/" + primary?.filename, await file.blob())
                     else
                         modszip.file("mods/" + primary?.filename, await file.blob());
                     moddownloads += 1;
@@ -131,7 +134,7 @@ const ProjectDialogComponent = ({ onclose, projectid }: { onclose: () => void, p
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
-                            <Select onValueChange={(e) => {setversion(e as string)}}>
+                            <Select onValueChange={(e) => { setversion(e as string) }}>
                                 <SelectTrigger >
                                     <SelectValue placeholder="All Versions" />
                                 </SelectTrigger>
@@ -149,7 +152,7 @@ const ProjectDialogComponent = ({ onclose, projectid }: { onclose: () => void, p
                             </Select>
                         </div>
                         {
-                            projectversions?.length == 0 ? <p className='text-center font-bold'>This modpack/mod doesnt have any releases yet</p> : projectversions?.filter((e)=>{return version==undefined?true:e.game_versions.includes(version)}).filter((e) => { { return loader == undefined ? true : e.loaders.includes(loader as string) } }).flatMap((e) => {
+                            projectversions?.length == 0 ? <p className='text-center font-bold'>This modpack/mod doesnt have any releases yet</p> : projectversions?.filter((e) => { return version == undefined ? true : e.game_versions.includes(version) }).filter((e) => { { return loader == undefined ? true : e.loaders.includes(loader as string) } }).flatMap((e) => {
                                 return (
                                     <div key={e.id} className='border p-2 flex justify-between items-center hover:backdrop-contrast-90'>
                                         <div>
@@ -182,7 +185,7 @@ const ProjectDialogComponent = ({ onclose, projectid }: { onclose: () => void, p
                                         if (e != null)
                                             return (
                                                 <div key={e.id} className='border flex hover:backdrop-contrast-75'>
-                                                    <img src={e.icon_url} alt="" className='size-1/6'/>
+                                                    <img src={e.icon_url} alt="" className='size-1/6' />
                                                     <p className='flex items-center p-2'>{e.title}</p>
                                                 </div>
                                             )
