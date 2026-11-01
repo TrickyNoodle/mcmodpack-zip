@@ -71,8 +71,8 @@ export default function Page() {
     try {
       const res = await fetch(
         `https://api.modrinth.com/v3/search?query=${encodeURIComponent(term)}` +
-          `&limit=${PAGE_SIZE}&offset=${(pageNumber - 1) * PAGE_SIZE}` +
-          "&new_filters=project_types+=+`modpack`"
+        `&limit=${PAGE_SIZE}&offset=${(pageNumber - 1) * PAGE_SIZE}` +
+        "&new_filters=project_types+=+`modpack`"
       )
       if (!res.ok) throw new Error("Bad response")
       const json: SearchResult = await res.json()
@@ -100,12 +100,14 @@ export default function Page() {
   }
 
   return (
-    <main className="flex min-h-svh flex-col gap-6 bg-background p-6 text-foreground">
+    <main className="relative flex min-h-svh flex-col gap-6 p-6 text-foreground
+    bg-[url('/stars.svg'),linear-gradient(to_top,#60a5fa,#6b21a8,#000000)]
+    bg-repeat-x
+    bg-top,bg-fill">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-
       <header className="mx-auto flex w-full max-w-5xl flex-col gap-3 text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
           Minecraft modpack toolbox
