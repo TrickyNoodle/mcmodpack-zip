@@ -101,7 +101,7 @@ export default function Page() {
 
   return (
     <main className="relative flex min-h-svh flex-col gap-6 p-6 text-foreground
-    bg-[url('/stars.svg'),linear-gradient(to_top,#60a5fa,#6b21a8,#000000)]
+    bg-[url('./stars.svg'),linear-gradient(to_top,#60a5fa,#6b21a8,#000000)]
     bg-repeat-x
     bg-top,bg-fill">
       <script
